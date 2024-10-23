@@ -1,11 +1,3 @@
-/*
- * darray.h
- * A simple dynamic array for storing integers
- *
- * Copyright (C) 2024 Douglas Rumbaugh <dbrumbaugh@harrisburgu.edu>
- *
- * Distributed under the Modified BSD License.
- */
 #ifndef H_DARRAY
 #define H_DARRAY
 
