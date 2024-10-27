@@ -10,20 +10,20 @@ release: $(TARGET) test
 debug: CFLAGS += -O0 -g
 debug: $(TARGET) test
 
-.PHONY: build
-build:
+.PHONY: all
+all:
 	mkdir -p lib/darray.a
 	mkdir -p bin/darray_test
-	mkdir -p build
+	mkdir -p all
 
 .PHONY: clean
 clean:
 	rm -rf $(TARGET)
-	rm -rf lib bin build
+	rm -rf lib bin all
 
 
-$(TARGET): build build/cpy.o
-	ar rcs $(TARGET) build/cpy.o
+$(TARGET): all all/cpy.o
+	ar rcs $(TARGET) all/cpy.o
 
 
 .PHONY: tests
@@ -32,8 +32,5 @@ tests: test/darray_test.c
 	$(CC) $(CFLAGS) $(LDFLAGS) $(LDLIBS) test/darray_test.c $(TARGET) -o bin/tests/darray_test
 
 
-build/darray.o: src/darray.c include/darray.h
-	$(CC) $(CFLAGS) $(LDFLAGS) $(LDLIBS) -c src/darray.c -o build/darray.o
-
-
-	
+all/darray.o: src/darray.c include/darray.h
+	$(CC) $(CFLAGS) $(LDFLAGS) $(LDLIBS) -c src/darray.c -o all/darray.o
