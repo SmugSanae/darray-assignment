@@ -22,8 +22,8 @@ clean:
 	rm -rf lib bin all
 
 
-$(TARGET): all all/cpy.o
-	ar rcs $(TARGET) all/cpy.o
+$(TARGET): all all/darray.o
+	ar rcs $(TARGET) all/darray.o
 
 
 .PHONY: tests
